@@ -1,0 +1,19 @@
+{
+    "name": "gui-window",
+    "main": "index.html",
+    "nodejs": true,
+    "window": {
+        "title": "GUI DEMO",
+        "toolbar": true,
+        "width": 800,
+        "height": 600,
+        "resizable": true,
+        "show_in_taskbar": true,
+        "frame": true,
+        "kiosk": false,
+        "icon": "./img/cat.ico"
+    },
+    "webkit": {
+        "plugin": true
+    }
+}

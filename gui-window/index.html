@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>gui window</title>
+</head>
+
+<body>
+    <h1>gui window</h1>
+    <button onclick="changeTitle()">点击修改标题</button>
+    <script>
+        var gui = require('nw.gui');
+        var win = gui.Window.get();
+        console.log(win);
+        win.on('minimize', function() {
+                var element = document.createElement('div');
+
+                element.appendChild(document.createTextNode('窗口最小化'));
+
+                document.body.appendChild(element);
+            })
+            // win.minimize();
+
+        // var new_win = gui.Window.get(
+
+        //     window.open('http://betterme.xin/')
+
+        // );
+        // var new_win = gui.Window.open('http://betterme.xin/', {
+
+        //     position: 'center',
+        //     focus: true
+
+        // });
+
+        //并不能监听新窗口
+        // new_win.on('Fcous', function() {
+        //     //
+        //     alert()
+        //     var element = document.createElement('div');
+
+        //     element.appendChild(document.createTextNode('新窗口被激活'));
+
+        //     document.body.appendChild(element);
+
+        //     //Unlisten the minimize event
+
+        //     win.removeAllListeners('minimize');
+
+        // });
+
+        var windowWidth = win.width;
+
+        var windowHeight = win.height;
+
+        if (win.window == window) //比较是否为DOM window
+        {
+
+            var element = document.createElement('div');
+
+            element.appendChild(document.createTextNode('Window.window 和DOM window对象相同,nativeWidth:' + windowWidth));
+
+
+
+            document.body.appendChild(element);
+
+        }
+
+        function changeTitle() {
+            win.title = "新标题";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>drag-drop</title>
+    <style>
+        #holder {
+            border: 10px dashed #ccc;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+        }
+        
+        #holder.hover {
+            border: 10px dashed #333;
+        }
+    </style>
+</head>
+
+<body style="background-color:rgba(0,0,0,0);">
+    <p id="output">
+        <h1>拖放测试</h1>
+        <h5></h5>
+        <!-- 对于向窗口拖放文件，能显示的显示，不能显示的提供下载，这不是桌面应用的效果，使用html5来阻止这种行为 -->
+        <!-- 获取拖放的文件信息并处理
+            1、获取文件路径
+            2、文件的读取、保存和进一步处理
+        -->
+    </p>
+    <div id="holder"></div>
+    <script>
+        // 阻止浏览器默认拖放行为
+        window.ondragover = function(e) {
+            e.preventDefault();
+            return false
+        };
+
+        window.ondrop = function(e) {
+            e.preventDefault();
+            return false
+        };
+
+
+        var holder = document.getElementById('holder');
+
+        holder.ondragover = function() {
+            this.className = 'hover';
+            return false;
+        };
+
+        holder.ondragleave = function() {
+            this.className = '';
+            return false;
+        };
+
+        var h5 = document.querySelector("h5");
+
+        holder.ondrop = function(e) {
+
+            e.preventDefault();
+
+            //h5 FileReader对象
+            var file = e.dataTransfer.files[0],
+                reader = new FileReader();
+
+            reader.onload = function(event) {
+
+                console.log(event.target);
+
+            };
+
+            console.log(file);
+
+            reader.readAsDataURL(file);
+
+
+
+            return false;
+
+
+            for (var i = 0; i < e.dataTransfer.files.length; ++i) {
+                h5.textContent += e.dataTransfer.files[i].path;
+            }
+            return false;
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+    "name": "platform-app",
+    "main": "index.html",
+    "window": {
+        "show": true,
+        "position": "center",
+        "width": 500,
+        "height": 500,
+        "icon": "./img/cat.png"
+    },
+    "scripts": {
+        "start": "nw ."
+    }
+}

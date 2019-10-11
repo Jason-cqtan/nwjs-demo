@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nw-02</title>
+    <style>
+        body {
+            -webkit-user-select: none;
+            -webkit-app-region: drag;
+        }
+    </style>
+</head>
+
+<!-- process.mainModule来获取node-main信息。打开调试台刷新，i值会变 -->
+
+<body onload="process.mainModule.exports.callback0()">
+    hello world!
+    <br> node version:
+    <script>
+        document.write(process.version);
+        document.write(process.getProcessList());
+    </script>.
+</body>
+
+</html>

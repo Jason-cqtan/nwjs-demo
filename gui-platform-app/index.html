@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>gui-platform-app</title>
+</head>
+
+<body>
+    <h1>gui-platform-app</h1>
+    <button onclick="closeWindow()">关闭窗口</button>
+    <script>
+        var gui = require('nw.gui');
+
+        var app = gui.App;
+
+        apendText(app.argv);
+
+        apendText(app.fullArgv);
+
+        apendText(app.filteredArgv);
+
+        var manifest = app.manifest;
+
+        apendText(manifest.name);
+        app.clearCache();
+
+        function closeWindow() {
+            app.closeAllWindows();
+        }
+
+        function apendText(text)
+
+        {
+
+            var element = document.createElement('div');
+
+            element.appendChild(document.createTextNode(text));
+
+            document.body.appendChild(element);
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+{
+    "name": "02", //应用名称，可以包含"." 或者"_"或者"-" ，不允许带空格。name必须全局唯一
+    "main": "index.html", //入口文件
+    "nodejs": true, //是否启用对node模块访问
+    "node-main": "hello.js", //node文件，加载比dom早，在node上下文中运行，可以用它来实现类似后台线程的功能
+    "single-instance": false, //启动应用后是否单实例，false为多实例
+    "window": {
+        "title": "pachkage-title",
+        "width": 500,
+        "height": 400,
+        "min_width": 300,
+        "min_height": 200,
+        "toolbar": true, //浏览器导航栏
+        "icon": "./img/cat.ico",
+        "position": "center", //可以设置为“null”、“center”或者“mouse”。
+        "as_desktop": true,
+        "resizable": true, //是否可缩放窗口
+        "always-on-top": true, //窗口置顶
+        "fullscreen": false, //全屏显示
+        "show_in_taskbar": true, //任务栏显示图标
+        "frame": true, //是否启用框架，设为false，窗口无边框，同时无法拖动,通常是我们需要自定义标题栏，窗口边框样式和按钮的时候
+        "show": true, //启动时窗口是否可见
+        "kiosk": false //是否使用kiosk模式。如果使用kiosk模式，应用程序将全屏显示，并且阻止用户离开应用。
+    },
+    "webkit": {
+        "plugin": true, //是否加载插件，如flash，默认值为false。
+        "java": false, //是否加载Java applets，默认为false
+        "page-cache": true //是否启用页面缓存，默认为false
+    },
+    "user-agent": "测试 %ver  %nwver %webkit_ver  windows7", //%name %ver %nwver %webkit_ver %osinfo
+    // %name: 替换配置中的name属性
+
+    // %ver: 替换配置中的version属性
+
+    // %nwver: 被node - webkit版本信息替换.
+
+    // %webkit_ver: 被WebKit 引擎的版本信息替换.
+
+    // %osinfo: 被 操作系统和 CPU 信息 替换， 在浏览器的 user agent 字符串中可以被看到.
+    // "chromium-args":""//chromium启动参数
+    "js-flags": "--harmony_proxies --harmony_collections", //传递给js引擎（V8）的参数。例如，想启用Harmony Proxies和 Collections功能
+    // "inject-js-start":"xx.js",//该js文件会在所有css文件加载完毕，dom初始化之前执行
+    // "inject-js-end":"xxx.js",//该js文件会在页面加载完毕，onload事件触发之前执行
+    // "snapshot":"",//应用快照文件路径
+    "dom_storage_quota": 512, //dom存储限额
+    "no-edit-menu": true, //mac下编辑菜单是否可用
+    "description": "描述信息",
+    "version": "v0.1",
+    "maintainers": [{ //软件维护者信息
+        "name": "Jason",
+        "email": "uniqueacheng@gmail.com",
+        "web": "https://betterme.xin"
+    }],
+    "repositories": [{
+        "type": "git",
+        "url": "http://github.com/example.git",
+        "path": "packages/mypackage"
+    }]
+}
